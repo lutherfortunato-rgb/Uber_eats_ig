@@ -29,6 +29,13 @@ int findVertex(Graph *g, const char *name);
 /* Edge operations */
 void addEdge(Graph *g, int source, int destination, int weight);
 
+/* Route helper */
+void printRouteByName(
+    Graph *g,
+    const char *sourceName,
+    const char *destinationName
+);
+
 /* Visualization */
 void printGraph(Graph *g);
 
