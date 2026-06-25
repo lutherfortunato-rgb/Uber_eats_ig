@@ -95,4 +95,4 @@ int isDelivered(const Order* order); //Verifica se um pedido foi entregue, retor
 
 #endif 
 
-//Yolokeny
+//It better work goddammit!
