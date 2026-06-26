@@ -9,13 +9,14 @@ Order order;
 
 order.id = id;
 
-//Para fazer as atribuicoes de strings, e necessario utilizar a função strcpy, pois não e possivel atribuir diretamente arrays de caracteres em C.
+//Para fazer as atribuicoes de strings, e necessario utilizar a funcao strcpy, pois nao e possivel atribuir diretamente 
+//arrays de caracteres em C.
 
 strcpy(order.customer_name, customer_name);
 strcpy(order.restaurant_name, restaurant_name);
 strcpy(order.description, description);
 
-//Ja com o float valor total_price, podemos atribuir diretamente, pois é um tipo de dado primitivo.
+//Ja com o float total_price, podemos atribuir diretamente, pois e um tipo de dado primitivo.
 order.total_price = total_price;
 
 //Nenhuma entrega atribuida inicialmente
@@ -26,21 +27,32 @@ order.status = PENDING;
 return order;
 }
 
-//Altera o estado atual do pedido
+//Obtem o estado atual do pedido
 OrderStatus getOrderStatus(const Order* order) {
+    if(order == NULL){
+        return -1; // Retorna um valor invalido se o ponteiro for nulo
+    }
     return order->status;
 }
 
-OrderStatus setOrderStatus(Order* order, OrderStatus status) {
-    order->status = status;
-    return order->status;
+//Altera o estado do pedido e retorna o novo estado
+void setOrderStatus(Order* order, OrderStatus status) {
+    if(order != NULL){
+        order->status = status;
+    }
 }
 
 float getTotalPrice(const Order* order){
+    if(order == NULL){
+        return -1; // Retorna um valor invalido se o ponteiro for nulo
+    }
     return order->total_price;
 }
 
 int getOrderId(const Order* order){
+    if(order == NULL){
+        return -1; // Retorna um valor invalido se o ponteiro for nulo
+    }
     return order->id;
 }
 
@@ -69,18 +81,28 @@ const char *getStatusString(OrderStatus status){
 }
 
 void assignDriverToOrder(Order* order, int driver_id){
-    order->driver_id = driver_id;
+    if(order != NULL){
+        order->driver_id = driver_id;
+    }
 }
 
 int getAssignedDriver(const Order* order){
+    if(order == NULL){
+        return -1; // Retorna um valor invalido se o ponteiro for nulo
+    }
     return order->driver_id;
 }
 
 void cancelOrder(Order* order){
-    order->status = CANCELLED;
+    if(order != NULL){
+        order->status = CANCELLED;
+    }
 }
 
 int isDelivered(const Order* order){
+    if(order == NULL){
+        return -1; // Retorna um valor invalido se o ponteiro for nulo
+    }
     return order->status == DELIVERED;
 }
 

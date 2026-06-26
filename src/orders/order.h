@@ -11,7 +11,7 @@ typedef enum {
     // Pedido criado, mas ainda não começou a ser preparado.
     PENDING,
 
-    // Pedido está a ser preparado pelo restaurante.
+    // Pedido esta a ser preparado pelo restaurante.
     PREPARING,
 
     // Pedido pronto para ser recolhido pelo entregador.
@@ -31,23 +31,23 @@ typedef enum {
 // Estrutura que representa um pedido feito por um cliente.
 typedef struct {
 
-    // Identificador único do pedido.
+    // Identificador unico do pedido.
     int id;
 
     // Nome do cliente que efetuou o pedido.
     char customer_name[MAX_NAME];
 
-    // Nome do restaurante responsável pelo pedido.
+    // Nome do restaurante responsavel pelo pedido.
     char restaurant_name[MAX_NAME];
 
-    // Descrição dos produtos pedidos.
+    // Descricao dos produtos pedidos.
     char description[MAX_DESCRIPTION];
 
     // Valor total do pedido.
     float total_price;
 
     // ID do entregador associado ao pedido.
-    // Pode permanecer sem atribuição até que um entregador seja selecionado.
+    // Pode permanecer sem atribuicao até que um entregador seja selecionado.
     int driver_id;
 
     // Estado atual do pedido.
@@ -90,7 +90,8 @@ void cancelOrder(Order* order); //Cancela um pedido, alterando seu estado para C
                                 //decide cancelar um pedido antes de ser entregue.
 
 int isDelivered(const Order* order); //Verifica se um pedido foi entregue, retornando 1 (verdadeiro) se o estado do pedido for DELIVERED 
-                                    //e 0 (falso) caso contrário. Esta funcao pode ser utilizada para verificar o status de um pedido antes de realizar ações adicionais, como permitir avaliações ou feedbacks por parte do cliente.
+                                    //e 0 (falso) caso contrário. Esta funcao pode ser utilizada para verificar o status de um pedido antes
+                                    // de realizar acoes adicionais, como permitir avaliações ou feedbacks por parte do cliente.
 
 
 #endif 
