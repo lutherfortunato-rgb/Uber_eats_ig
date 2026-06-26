@@ -44,8 +44,9 @@ int getOrderId(const Order* order){
     return order->id;
 }
 
-//Ao inves de imprimir diretamente o valor do enum, podemos criar uma funcao que converta o valor do enum para uma string correspondente, facilitando a leitura e compreensao do estado do pedido.
-/*Exemplo:
+/*Ao inves de imprimir diretamente o valor do enum, podemos criar uma funcao que converta o valor do
+ enum para uma string correspondente, facilitando a leitura e compreensao do estado do pedido.
+Exemplo:
 Ao inves de imprimir "Estado do Pedido: 0"
 Imprimir "Estado do Pedido: Pendente"
 */
