@@ -84,6 +84,7 @@ int isDelivered(const Order* order){
     return order->status == DELIVERED;
 }
 
+//Mostrar o pedido
 void displayOrder(const Order* order){
     printf("ID do Pedido: %d\n", order->id);
     printf("Nome do Cliente: %s\n", order->customer_name);
