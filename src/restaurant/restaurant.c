@@ -79,7 +79,7 @@ void displayMenu(
     for (int i = 0; i < restaurant->menuCount; i++) {
 
         printf(
-            "%d. %s - %.2f\n",
+            "%d. %-25s %.2f €\n",
             i + 1,
             restaurant->menu[i].name,
             restaurant->menu[i].price
@@ -97,20 +97,36 @@ void displayRestaurant(
 
     printf("\n===== RESTAURANT =====\n");
 
-    printf(
-        "ID: %d\n",
-        restaurant->id
-    );
-
-    printf(
-        "Name: %s\n",
-        restaurant->name
-    );
-
-    printf(
-        "Location: %s\n",
-        restaurant->location
-    );
+    printf("ID: %d\n", restaurant->id);
+    printf("Name: %s\n", restaurant->name);
+    printf("Location: %s\n", restaurant->location);
 
     displayMenu(restaurant);
+}
+
+int getMenuSize(
+    const Restaurant *restaurant
+) {
+
+    if (restaurant == NULL) {
+        return 0;
+    }
+
+    return restaurant->menuCount;
+}
+
+const MenuItem *getMenuItem(
+    const Restaurant *restaurant,
+    int option
+) {
+
+    if (restaurant == NULL) {
+        return NULL;
+    }
+
+    if (option < 1 || option > restaurant->menuCount) {
+        return NULL;
+    }
+
+    return &restaurant->menu[option - 1];
 }

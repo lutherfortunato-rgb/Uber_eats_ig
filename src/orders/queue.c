@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "queue.h"
-#include "order.h"
 
 //Os comentarios foram feitos no header (queue.h)
 
@@ -16,7 +15,7 @@ struct Queue {
     int size;
 };
 
-Queue* createQueue() {
+Queue* createQueue(void) {
     Queue* queue = malloc(sizeof(Queue));
 
     if (queue == NULL) {
@@ -123,6 +122,15 @@ void destroyQueue(Queue* queue) {
     }
 
     free(queue);
+}
+
+int getQueueSize(const Queue* queue) {
+
+    if (queue == NULL) {
+        return 0;
+    }
+
+    return queue->size;
 }
 
 //It better work, Goddammit!

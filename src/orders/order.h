@@ -62,7 +62,7 @@ typedef struct {
 
 //Funcao que cria um novo pedido com os dados fornecidos e retorna uma estrutura Order preenchida.
 
-Order createOrder(int id, char customer_name[], char restaurant_name[], char description[], float total_price);
+Order createOrder(int id, const char customer_name[], const char restaurant_name[], const char description[], float total_price);
 
 //Funcao que exibe os detalhes de um pedido, incluindo informacoes como o nome do cliente, nome do restaurante...
 
@@ -92,7 +92,9 @@ void cancelOrder(Order* order); //Cancela um pedido, alterando seu estado para C
 int isDelivered(const Order* order); //Verifica se um pedido foi entregue, retornando 1 (verdadeiro) se o estado do pedido for DELIVERED 
                                     //e 0 (falso) caso contrário. Esta funcao pode ser utilizada para verificar o status de um pedido antes
                                     // de realizar acoes adicionais, como permitir avaliações ou feedbacks por parte do cliente.
+int getOrderId(const Order* order);
 
+const char *getStatusString(OrderStatus status);
 
 #endif 
 

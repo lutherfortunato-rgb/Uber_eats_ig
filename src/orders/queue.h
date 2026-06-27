@@ -3,7 +3,6 @@
 
 #include "order.h"
 
-#define MAX_QUEUE_SIZE 100
 
 //A estrutura fila (queue) e opaca, ou seja, sua implementacao é escondida do usuário.
 //Isso para evitar que os pedidos nao sejam alterados diretamente, garantindo que as operacoes de enfileiramento e desenfileiramento 
@@ -28,9 +27,6 @@ int dequeue(Queue* queue, Order* removedOrder);
 
 //Ver se a fila esta vazia
 int isQueueEmpty(const Queue* queue);
-
-//Ver se a fila esta cheia
-int isQueueFull(const Queue* queue);
 
 //Obter o tamanho da fila
 int getQueueSize(const Queue* queue);

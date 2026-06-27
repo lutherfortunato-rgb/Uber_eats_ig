@@ -4,7 +4,11 @@
 
 
 //Funcao para criar um pedido
-Order createOrder(int id, char customer_name[], char restaurant_name[], char description[], float total_price) {
+Order createOrder(int id,
+                  const char customer_name[],
+                  const char restaurant_name[],
+                  const char description[],
+                  float total_price) {
 Order order;
 
 order.id = id;
@@ -42,7 +46,7 @@ void setOrderStatus(Order* order, OrderStatus status) {
     }
 }
 
-float getTotalPrice(const Order* order){
+float getOrderTotalPrice(const Order* order){
     if(order == NULL){
         return -1; // Retorna um valor invalido se o ponteiro for nulo
     }
@@ -66,27 +70,29 @@ const char *getStatusString(OrderStatus status){
     switch(status){
         case PENDING:
             return "Pendente";
-            case PREPARING:
+        case PREPARING:
             return "Em Preparacao";
-            case READY_FOR_DELIVERY:
+        case READY_FOR_DELIVERY:
             return "Pronto para Entrega";
-            case IN_DELIVERY:
+        case IN_DELIVERY:
             return "Em Entrega";
-            case DELIVERED:
+        case DELIVERED:
             return "Entregue";
-            case CANCELLED:
+        case CANCELLED:
             return "Cancelado";
+        default:
+            return "UNKNOWN!";
             
     } 
 }
 
-void assignDriverToOrder(Order* order, int driver_id){
+void assignDriver(Order* order, int driver_id){
     if(order != NULL){
         order->driver_id = driver_id;
     }
 }
 
-int getAssignedDriver(const Order* order){
+int getDriverId(const Order* order){
     if(order == NULL){
         return -1; // Retorna um valor invalido se o ponteiro for nulo
     }
